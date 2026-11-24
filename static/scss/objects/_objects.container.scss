@@ -1,0 +1,17 @@
+@use "../tools/tools.index" as tools;
+
+.o-container {
+    position: relative;
+    max-width: 1920px;
+    margin: 0 auto;
+
+    &--thin {
+        padding-left: tools.percentage(5, 22);
+        padding-right: tools.percentage(5, 22);
+
+        @include tools.mq(lg) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}

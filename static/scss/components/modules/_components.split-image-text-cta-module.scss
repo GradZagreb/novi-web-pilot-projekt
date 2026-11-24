@@ -1,0 +1,84 @@
+@use "../../tools/tools.index" as tools;
+
+.c-split-image-text-cta-module {
+    $this: &;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    grid-template-areas: "content image";
+
+    @include tools.mq("md-lg") {
+        grid-template-columns: 1fr;
+        grid-template-areas: "image" "content";
+    }
+
+    &__content {
+        grid-area: content;
+        display: flex;
+        flex-direction: column;
+        gap: var(--s-20);
+        align-items: flex-start;
+        padding-right: tools.percentage(2, 11);
+        padding-top: var(--s-100);
+        padding-bottom: var(--s-100);
+
+        @include tools.mq("md-lg") {
+            padding-right: 0;
+            padding-top: var(--s-60);
+            padding-bottom: var(--s-60);
+        }
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: var(--s-20);
+    }
+
+    &__list {
+        list-style: disc;
+        padding-left: 1em;
+
+        li {
+            a {
+                color: var(--blue);
+                text-decoration: underline;
+
+                @include tools.hover {
+                    color: var(--blue);
+                }
+
+                &[target="_blank"] {
+                    &::after {
+                        content: " ↗";
+                    }
+                }
+            }
+        }
+    }
+
+    &__heading {
+    }
+
+    &__image {
+        grid-area: image;
+    }
+
+    &__actions {
+        margin-top: var(--s-10);
+    }
+
+    &--flipped {
+        grid-template-areas: "image content";
+
+        #{$this}__content {
+            padding-right: 0;
+            padding-left: tools.percentage(2, 11);
+
+            @include tools.mq("md-lg") {
+                padding-left: 0;
+            }
+        }
+    }
+}

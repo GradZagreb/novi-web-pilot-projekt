@@ -1,0 +1,15 @@
+@use "../tools/_tools.index" as tools;
+
+.o-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: tools.get-z-index("navigation");
+    background-color: var(--white);
+    transition: transform 0.3s ease-in-out;
+
+    &.slide-up {
+        transform: translateY(-100%);
+    }
+}

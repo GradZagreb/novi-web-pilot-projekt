@@ -1,0 +1,15 @@
+@use "../tools/tools.index" as tools;
+
+.o-page {
+    &__inner {
+        padding-top: calc(60px + 121px);
+
+        @include tools.mq(lg) {
+            padding-top: 78px;
+        }
+    }
+
+    &--light-gray {
+        background-color: var(--light-gray);
+    }
+}

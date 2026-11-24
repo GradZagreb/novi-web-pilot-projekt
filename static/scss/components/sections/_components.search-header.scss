@@ -1,0 +1,18 @@
+@use "../../tools/tools.index" as tools;
+
+.c-search-header {
+    padding-top: var(--s-150);
+    padding-bottom: var(--s-150);
+    padding-left: tools.percentage(3, 22);
+    padding-right: tools.percentage(3, 22);
+
+    &__heading {
+        margin-bottom: var(--s-30);
+    }
+
+    .c-search-form {
+        &__recent-searches {
+            justify-content: center;
+        }
+    }
+}

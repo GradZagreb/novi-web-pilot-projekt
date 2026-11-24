@@ -1,0 +1,18 @@
+<?php
+
+namespace gradZagrebWeb2024\lib\optimization;
+
+use gradZagrebWeb2024\lib\optimization\wpPlugins\ACFEOptions;
+use gradZagrebWeb2024\lib\optimization\wpPlugins\CF7Options;
+
+abstract class BaseWPPluginsOptimization {
+	protected function deactivate_acfe_options( array $settings = array() ): void {
+		$acfe_options = new ACFEOptions();
+		$acfe_options->deactivate( $settings );
+	}
+
+	protected function deactivate_cf7_options( array $settings = array() ): void {
+		$cf7_options = new CF7Options();
+		$cf7_options->deactivate( $settings );
+	}
+}

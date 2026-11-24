@@ -1,0 +1,11 @@
+.c-language-switcher {
+    display: flex;
+    align-items: center;
+    gap: var(--s-15);
+
+    &__language-item {
+        &.is-active {
+            text-decoration: underline;
+        }
+    }
+}

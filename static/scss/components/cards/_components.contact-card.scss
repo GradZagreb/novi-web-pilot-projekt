@@ -1,0 +1,40 @@
+@use "../../tools/tools.index" as tools;
+
+.c-contact-card {
+    padding: var(--s-10);
+    border: 1px solid var(--light-gray-blue);
+    border-radius: 4px;
+    background-color: var(--light-gray);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-10);
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+
+        @include tools.mq(sm) {
+            flex-direction: column;
+            gap: 0;
+        }
+    }
+
+    &__label {
+        color: var(--black);
+    }
+
+    &__text {
+        word-break: break-word;
+        color: var(--black-50);
+
+        &[href] {
+            color: var(--blue);
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+@use "../../tools/tools.index" as tools;
+
+.c-sub-theme-header-module {
+    padding-top: var(--s-100);
+    padding-bottom: var(--s-60);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--s-30);
+
+    @include tools.mq(md) {
+        grid-template-columns: 1fr;
+    }
+}

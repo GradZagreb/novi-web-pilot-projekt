@@ -1,0 +1,11 @@
+@use "../tools/tools.index" as tools;
+
+.c-search-trigger {
+    &__button {
+        @include tools.button-reset;
+        width: var(--s-40);
+        height: var(--s-40);
+        border-radius: 4px;
+        border: 1px solid var(--light-gray-blue);
+    }
+}

@@ -1,0 +1,9 @@
+@use "../settings/settings.color" as color;
+
+.c-separator {
+    display: block;
+    height: 1px;
+    background-color: rgba(color.$blue, 0.2);
+    margin-top: var(--s-30);
+    margin-bottom: var(--s-30);
+}

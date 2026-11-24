@@ -1,0 +1,60 @@
+@use "../../tools/tools.index" as tools;
+
+.c-service-single-content {
+    padding-bottom: var(--s-100);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-40);
+
+    &__info {
+        h2 {
+            margin-bottom: var(--s-10);
+        }
+
+        p {
+            margin-bottom: var(--s-5);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        ul {
+            margin-bottom: var(--s-5);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            li {
+                display: inline;
+
+                &::after {
+                    content: ", ";
+                }
+
+                &:last-child {
+                    &::after {
+                        content: "";
+                    }
+                }
+            }
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: underline;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--s-20);
+
+        @include tools.mq(md) {
+            grid-template-columns: 1fr;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.c-office-card {
+    background-color: var(--white);
+    border-radius: 4px;
+    padding: var(--s-30);
+    height: 100%;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--s-20);
+        height: 100%;
+    }
+
+    a {
+        margin-top: auto;
+        color: var(--blue);
+        text-decoration: underline;
+    }
+}

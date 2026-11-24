@@ -1,0 +1,23 @@
+@use "../tools/tools.index" as tools;
+
+.c-search-results {
+    padding-bottom: var(--s-100);
+    padding-left: tools.percentage(5, 22);
+    padding-right: tools.percentage(5, 22);
+
+    @include tools.mq(md) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &__list {
+    }
+
+    &__item {
+        border-top: 1px solid var(--light-gray-blue);
+
+        &:last-child {
+            border-bottom: 1px solid var(--light-gray-blue);
+        }
+    }
+}

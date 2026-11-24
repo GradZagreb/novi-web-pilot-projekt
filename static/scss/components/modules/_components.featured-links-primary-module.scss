@@ -1,0 +1,23 @@
+@use "../../settings/_settings.index" as settings;
+@use "../../tools/tools.index" as tools;
+
+.c-featured-links-primary-module {
+    padding-top: var(--s-100);
+    padding-bottom: var(--s-100);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-30);
+
+    header {
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: var(--s-30);
+
+        @include tools.mq("md") {
+            grid-template-columns: 1fr;
+        }
+    }
+}

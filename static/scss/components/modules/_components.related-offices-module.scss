@@ -1,0 +1,22 @@
+.c-related-offices-module {
+    padding-top: var(--s-100);
+    padding-bottom: var(--s-100);
+
+    &__header {
+        margin-bottom: var(--s-30);
+    }
+
+    &__slider {
+    }
+
+    &__navigation {
+        margin-top: var(--s-30);
+        display: flex;
+        justify-content: flex-end;
+        gap: var(--s-10);
+    }
+
+    .swiper-slide {
+        height: auto;
+    }
+}

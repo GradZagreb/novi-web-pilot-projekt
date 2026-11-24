@@ -1,0 +1,48 @@
+@use "sass:list";
+@use "sass:map";
+@use "../settings/settings.index" as settings;
+
+@function get-transition-easing($transition-easing: "default") {
+    @if (map.has-key(settings.$settings-transition-easing, $transition-easing)) {
+        @return map.get(settings.$settings-transition-easing, $transition-easing);
+    } @else {
+        @return map.get(settings.$settings-transition-easing, "default");
+    }
+}
+
+@function get-transition($transition-name: "default", $transition-easing: get-transition-easing()) {
+    @if (map.has-key(settings.$settings-transition, $transition-name)) {
+        @return map.get(settings.$settings-transition, $transition-name) get-transition-easing($transition-easing);
+    } @else {
+        @return map.get(settings.$settings-transition, "default") get-transition-easing($transition-easing);
+    }
+}
+
+@function get-custom-transition($transitions...) {
+    $unfolded-transitions: ();
+    @each $transition in $transitions {
+        $unfolded-transitions: list.append($unfolded-transitions, unfold-transition($transition), comma);
+    }
+    @return $unfolded-transitions;
+}
+
+@function unfold-transition($transition) {
+    $property: all;
+    $duration: 0.2s;
+    $easing: get-transition-easing();
+    $delay: null;
+    $default-properties: ($property, $duration, $easing, $delay);
+
+    $unfolded-transition: ();
+    @for $i from 1 through list.length($default-properties) {
+        $p: null;
+        @if $i <= list.length($transition) {
+            $p: list.nth($transition, $i);
+        } @else {
+            $p: list.nth($default-properties, $i);
+        }
+        $unfolded-transition: list.append($unfolded-transition, $p);
+    }
+
+    @return $unfolded-transition;
+}

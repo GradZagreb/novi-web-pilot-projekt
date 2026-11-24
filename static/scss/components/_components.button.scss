@@ -1,0 +1,150 @@
+@use "../tools/tools.index" as tools;
+@use "../settings/settings.typography" as typography;
+@use "../settings/settings.transition" as transition;
+
+@mixin circle {
+    &:hover {
+        .c-circle {
+            &::before,
+            &::after {
+                animation: in var(--speed) transition.$ease-in-out-cubic both;
+            }
+        }
+    }
+
+    @keyframes in {
+        from {
+            transform: rotate(-45deg);
+        }
+        to {
+            transform: rotate(135deg);
+        }
+    }
+
+    @keyframes out {
+        from {
+            transform: rotate(135deg);
+        }
+        to {
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+.c-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0;
+    overflow: hidden;
+    outline: 0;
+    border: none;
+    vertical-align: top;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    box-shadow: none;
+    text-align: center;
+    outline: none;
+    box-sizing: border-box;
+    position: relative;
+
+    @include tools.hover {
+        &:not(:disabled) {
+        }
+    }
+
+    @include tools.focus;
+
+    &:disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+        opacity: 0.3;
+    }
+
+    &--primary {
+        height: var(--s-40);
+        background-color: var(--blue);
+        color: var(--white);
+        border-radius: 2px;
+        padding-left: var(--s-20);
+        padding-right: var(--s-20);
+        border: 1px solid var(--blue);
+        transition:
+            background-color 0.1s ease,
+            color 0.1s ease;
+
+        @include typography.b3;
+
+        @include tools.hover {
+            &:not(:disabled) {
+                background-color: transparent;
+                color: var(--blue);
+            }
+        }
+    }
+
+    &--primary-outline {
+        height: var(--s-40);
+        background-color: transparent;
+        color: var(--blue);
+        border-radius: 2px;
+        padding-left: var(--s-20);
+        padding-right: var(--s-20);
+        border: 1px solid var(--blue);
+        display: flex;
+        align-items: center;
+        gap: var(--s-5);
+        transition:
+            background-color 0.1s ease,
+            color 0.1s ease;
+
+        @include typography.b3;
+
+        @include tools.hover {
+            &:not(:disabled) {
+                background-color: var(--blue);
+                color: var(--white);
+            }
+        }
+    }
+
+    &--secondary {
+        height: var(--s-40);
+        gap: var(--s-15);
+
+        @include circle;
+    }
+
+    &--square-icon {
+        width: var(--s-50);
+        height: var(--s-50);
+        border-radius: 4px;
+        background-color: var(--blue);
+
+        @include circle;
+    }
+
+    &--white-square-icon {
+        width: var(--s-30);
+        height: var(--s-30);
+        background-color: transparent;
+        padding: 0;
+
+        @include circle;
+    }
+
+    &--square-icon-white {
+        width: var(--s-30);
+        height: var(--s-30);
+        border-radius: 4px;
+
+        @include circle;
+    }
+
+    &--full {
+        width: 100%;
+    }
+}

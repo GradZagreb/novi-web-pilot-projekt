@@ -1,0 +1,36 @@
+@use "../../settings/_settings.index" as settings;
+@use "../../tools/_tools.index" as tools;
+
+.c-filter-form {
+    position: relative;
+    z-index: tools.get-z-index("filter-form");
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-20);
+
+    &__filters {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--s-30);
+
+        @include tools.mq(md) {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: var(--s-20);
+        }
+    }
+
+    &__active-filters {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--s-10);
+    }
+
+    &__reset {
+        @include tools.button-reset;
+        @include settings.b4;
+        text-decoration: underline;
+    }
+}

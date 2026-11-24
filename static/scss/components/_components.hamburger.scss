@@ -1,0 +1,57 @@
+@use "../tools/tools.index" as tools;
+
+.c-hamburger {
+    @include tools.button-reset;
+
+    & {
+        position: relative;
+        overflow: visible;
+        display: inline-flex;
+        width: 45px;
+        height: 45px;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid var(--light-gray-blue);
+    }
+
+    @include tools.focus;
+
+    &.is-open {
+        span {
+            &:nth-child(1) {
+                transform: translateY(-50%) rotate(45deg);
+            }
+
+            &:nth-child(2) {
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+
+            &:nth-child(3) {
+                transform: translateY(-50%) rotate(-45deg);
+            }
+        }
+    }
+
+    span {
+        width: calc(100% - 20px);
+        height: 2px;
+        background-color: currentColor;
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transition: tools.get-transition(slide, ease-in-quad);
+
+        &:nth-child(1) {
+            transform: translateY(-400%);
+        }
+
+        &:nth-child(2) {
+            transform: translateY(-50%);
+        }
+
+        &:nth-child(3) {
+            transform: translateY(300%);
+        }
+    }
+}

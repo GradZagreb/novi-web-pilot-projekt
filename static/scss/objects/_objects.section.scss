@@ -1,0 +1,81 @@
+@use "../tools/tools.index" as tools;
+
+.o-section {
+    padding-left: tools.percentage(1, 24);
+    padding-right: tools.percentage(1, 24);
+
+    &--thin {
+        padding-left: tools.percentage(4, 24);
+        padding-right: tools.percentage(4, 24);
+
+        @include tools.mq(lg) {
+            padding-left: tools.percentage(1, 24);
+            padding-right: tools.percentage(1, 24);
+        }
+    }
+
+    &--narrow {
+        padding-left: tools.percentage(3, 24);
+        padding-right: tools.percentage(3, 24);
+
+        @include tools.mq(lg) {
+            padding-left: tools.percentage(1, 24);
+            padding-right: tools.percentage(1, 24);
+        }
+    }
+
+    &--wide {
+        padding-left: tools.percentage(1, 24);
+        padding-right: tools.percentage(1, 24);
+    }
+
+    &--no-padding-left {
+        padding-left: 0;
+
+        @include tools.mq(lg) {
+            padding-left: 0;
+        }
+    }
+
+    &--no-padding-right {
+        padding-right: 0;
+
+        @include tools.mq(lg) {
+            padding-right: 0;
+        }
+    }
+
+    &--full-width {
+        padding-left: 0;
+        padding-right: 0;
+
+        @include tools.mq(lg) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    &--full-vh {
+        height: 100vh;
+    }
+
+    &--black {
+        background-color: var(--black);
+    }
+
+    &--no-overflow {
+        overflow: hidden;
+    }
+
+    &--blue {
+        background-color: var(--blue);
+    }
+
+    &--light-gray {
+        background-color: var(--light-gray);
+    }
+
+    &--dark-blue {
+        background-color: var(--dark-blue);
+    }
+}

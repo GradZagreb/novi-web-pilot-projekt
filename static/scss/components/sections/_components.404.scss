@@ -1,0 +1,21 @@
+@use "../../tools/tools.index" as tools;
+
+.c-404 {
+    padding-top: var(--s-200);
+    padding-bottom: var(--s-200);
+    padding-left: tools.percentage(5, 22);
+    padding-right: tools.percentage(5, 22);
+
+    @include tools.mq(md) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    h1 {
+        margin-bottom: var(--s-15);
+    }
+
+    p {
+        margin-bottom: var(--s-30);
+    }
+}

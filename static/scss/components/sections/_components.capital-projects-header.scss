@@ -1,0 +1,50 @@
+@use "../../tools/tools.index" as tools;
+
+.c-capital-projects-header {
+    padding-top: var(--s-100);
+    padding-bottom: var(--s-100);
+    display: grid;
+    grid-template-columns: repeat(22, 1fr);
+
+    @include tools.mq("md-lg") {
+        grid-template-columns: 1fr;
+        gap: var(--s-30);
+    }
+
+    &__heading {
+        grid-column: 1 / 23;
+        padding-bottom: var(--s-40);
+
+        @include tools.mq("md-lg") {
+            grid-column: initial;
+        }
+    }
+
+    &__news-heading {
+        padding-bottom: var(--s-10);
+        display: flex;
+        align-items: center;
+        gap: var(--s-10);
+        border-bottom: 1px solid var(--light-gray-blue);
+
+        .u-icon {
+            color: var(--blue);
+        }
+    }
+
+    &__featured-project {
+        grid-column: 1 / 14;
+
+        @include tools.mq("md-lg") {
+            grid-column: initial;
+        }
+    }
+
+    &__featured-news {
+        grid-column: 15 / 23;
+
+        @include tools.mq("md-lg") {
+            grid-column: initial;
+        }
+    }
+}

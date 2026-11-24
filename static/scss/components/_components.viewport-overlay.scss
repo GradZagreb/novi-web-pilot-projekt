@@ -1,0 +1,19 @@
+@use "../tools/tools.index" as tools;
+
+.c-viewport-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: tools.get-z-index(overlay);
+    background-color: var(--black);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    &.is-open {
+        visibility: visible;
+        pointer-events: all;
+    }
+}

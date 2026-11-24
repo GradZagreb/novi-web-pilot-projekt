@@ -1,0 +1,67 @@
+@use "../../tools/tools.index" as tools;
+@use "../../settings/settings.transition" as transition;
+
+.c-tender-card {
+    background-color: var(--white);
+    border-radius: 4px;
+    padding: var(--s-30);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+        .c-circle {
+            &::before,
+            &::after {
+                animation: in var(--speed) transition.$ease-in-out-cubic both;
+            }
+        }
+    }
+
+    a {
+        @include tools.hover {
+            color: var(--blue);
+        }
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+    }
+
+    &__meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--s-10);
+        margin-bottom: var(--s-10);
+    }
+
+    &__content {
+        margin-bottom: var(--s-20);
+    }
+
+    .c-circle {
+        margin-top: auto;
+    }
+
+    @keyframes in {
+        from {
+            transform: rotate(-45deg);
+        }
+        to {
+            transform: rotate(135deg);
+        }
+    }
+
+    @keyframes out {
+        from {
+            transform: rotate(135deg);
+        }
+        to {
+            transform: rotate(-45deg);
+        }
+    }
+}

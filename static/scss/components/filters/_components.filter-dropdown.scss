@@ -1,0 +1,194 @@
+@use "../../settings/_settings.index" as settings;
+@use "../../tools/_tools.index" as tools;
+
+.c-filter-dropdown {
+    $this: &;
+
+    position: relative;
+    min-width: 240px;
+    width: 100%;
+
+    &__wrapper {
+        display: flex;
+        gap: var(--s-10);
+        display: flex;
+        align-items: center;
+
+        &--align-right {
+            margin-left: auto;
+        }
+
+        @include tools.mq(md) {
+            min-width: initial;
+            width: 100%;
+        }
+    }
+
+    &__label {
+        @include settings.b3;
+    }
+
+    &__trigger {
+        @include tools.button-reset;
+        @include settings.b3;
+
+        & {
+            width: 100%;
+            justify-content: space-between;
+            height: var(--s-25);
+            border-bottom: 1px solid var(--light-gray-blue);
+        }
+
+        @include tools.mq(md) {
+            height: var(--s-40);
+        }
+    }
+
+    &__indicator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        transform: scaleY(1);
+        transition: transform 0.2s;
+    }
+
+    &__list {
+        position: absolute;
+        top: calc(100% - 1px);
+        width: 100%;
+        z-index: 10000;
+        background-color: var(--white);
+        border: 1px solid var(--light-gray-blue);
+        border-radius: 1px;
+        box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+        height: auto;
+        max-height: calc(var(--s-150) * 2);
+        transition:
+            transform 0.2s,
+            opacity 0.2s;
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: center top;
+
+        @include settings.b4;
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: var(--s-15);
+            border-bottom: 1px solid var(--light-gray-blue);
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+    &--multiselect {
+        input[type="checkbox"] {
+            opacity: 0;
+            width: 0;
+            height: 0;
+
+            & + label {
+                padding-left: var(--s-30);
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+
+                &:before,
+                &:after {
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    display: block;
+                    width: var(--s-20);
+                    height: var(--s-20);
+                    transform: translateY(-50%);
+                }
+
+                &:before {
+                    content: "";
+                    background-color: var(--white);
+                    border: 1px solid var(--blue);
+                    border-radius: 1px;
+                }
+
+                &:after {
+                    content: "";
+                    transform: translateY(-50%) scale(0);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMy41IDQuOTE5NzlMNi4zMzY1NyAxMi4wODMyTDIuNSA4LjI0NjY1TDMuNTE5NCA3LjIyNzI2TDYuMzM2NTcgMTAuMDQ0NEwxMi40ODA2IDMuOTAwMzlMMTMuNSA0LjkxOTc5WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+");
+                }
+            }
+
+            &:checked {
+                & + label {
+                    &:before {
+                        outline: 0;
+                        background-color: var(--blue);
+                    }
+
+                    &:after {
+                        transform: translateY(-50%) scale(0.8);
+                    }
+                }
+            }
+        }
+    }
+
+    &.is-open {
+        #{$this}__list {
+            opacity: 1;
+            transform: scaleY(1);
+        }
+
+        #{$this}__indicator {
+            transform: scaleY(-1);
+        }
+    }
+
+    .ss-main {
+        min-height: var(--s-25);
+        margin: 0;
+        cursor: pointer;
+        border: 0;
+        border-bottom: 1px solid var(--light-gray-blue);
+        border-radius: 0;
+        padding: 0;
+
+        @include tools.mq(md) {
+            min-height: var(--s-40);
+        }
+
+        .ss-values {
+            @include settings.b3;
+        }
+
+        .ss-arrow {
+            width: 0.5em;
+            height: 0.5em;
+
+            path {
+                stroke-width: 15;
+            }
+        }
+    }
+
+    .ss-content {
+        border: 1px solid var(--light-gray-blue);
+        border-radius: 1px;
+
+        &.ss-relative {
+            position: absolute;
+            width: 100%;
+            height: auto;
+            top: 100%;
+        }
+    }
+}

@@ -1,0 +1,113 @@
+@use "../../tools/tools.index" as tools;
+@use "../../settings/settings.transition" as transition;
+
+.c-service-card {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(22, 1fr);
+    padding: var(--s-20) 0;
+    border-bottom: 1px solid var(--light-gray-blue);
+    position: relative;
+
+    @include tools.hover {
+        .c-circle {
+            &::before,
+            &::after {
+                animation: in var(--speed) transition.$ease-in-out-cubic both;
+            }
+        }
+    }
+
+    @include tools.mq(md) {
+        grid-template-columns: 1fr;
+        gap: var(--s-10);
+    }
+
+    &__themes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        grid-column: 1 / 6;
+
+        @include tools.mq(md) {
+            grid-column: 1 / 2;
+            padding: 0;
+        }
+    }
+
+    &__title {
+        grid-column: 6 / 13;
+        padding: 0 var(--s-15);
+
+        @include tools.mq(md) {
+            grid-column: 1 / 2;
+            padding: 0;
+        }
+    }
+
+    &__excerpt {
+        grid-column: 13 / 22;
+        padding: 0 var(--s-15);
+
+        @include tools.mq(md) {
+            grid-column: 1 / 2;
+            padding: 0;
+        }
+    }
+
+    &__link {
+        grid-column: 22 / 23;
+        justify-self: center;
+
+        @include tools.mq(md) {
+            grid-column: 1 / 2;
+            justify-self: start;
+        }
+    }
+
+    a {
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+    }
+
+    &--dark {
+        background-color: var(--dark-blue);
+        color: var(--white);
+        border-bottom: 1px solid #335079;
+
+        a {
+            &::before {
+            }
+        }
+
+        @include tools.hover {
+            a {
+                &::before {
+                }
+            }
+        }
+    }
+
+    @keyframes in {
+        from {
+            transform: rotate(-45deg);
+        }
+        to {
+            transform: rotate(135deg);
+        }
+    }
+
+    @keyframes out {
+        from {
+            transform: rotate(135deg);
+        }
+        to {
+            transform: rotate(-45deg);
+        }
+    }
+}

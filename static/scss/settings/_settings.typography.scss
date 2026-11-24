@@ -1,0 +1,154 @@
+@use "../tools/tools.typography" as typography;
+@use "settings.breakpoint" as breakpoint;
+
+@include typography.font-face("Apfel", "ApfelGrotezk-Regular");
+@include typography.font-face("Apfel", "ApfelGrotezk-Fett", $font-weight: 700);
+
+$system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+$apfel: "Apfel", $system;
+$font-primary: $apfel;
+
+$settings-typography: (
+    "a6": (
+        breakpoint.$breakpoint-sm: 35px,
+        breakpoint.$breakpoint-xl: 60px,
+    ),
+    "a5": (
+        breakpoint.$breakpoint-sm: 30px,
+        breakpoint.$breakpoint-xl: 45px,
+    ),
+    "a4": (
+        breakpoint.$breakpoint-sm: 25px,
+        breakpoint.$breakpoint-xl: 35px,
+    ),
+    "a3": (
+        breakpoint.$breakpoint-sm: 22px,
+        breakpoint.$breakpoint-xl: 30px,
+    ),
+    "a2": (
+        breakpoint.$breakpoint-sm: 18px,
+        breakpoint.$breakpoint-xl: 22px,
+    ),
+    "a1": (
+        breakpoint.$breakpoint-sm: 16px,
+        breakpoint.$breakpoint-xl: 20px,
+    ),
+    "b0": (
+        breakpoint.$breakpoint-sm: 16px,
+        breakpoint.$breakpoint-xl: 18px,
+    ),
+    "b1": (
+        breakpoint.$breakpoint-sm: 16px,
+        breakpoint.$breakpoint-xl: 18px,
+    ),
+    "b2": (
+        breakpoint.$breakpoint-sm: 14px,
+        breakpoint.$breakpoint-xl: 16px,
+    ),
+    "b3": (
+        breakpoint.$breakpoint-sm: 14px,
+        breakpoint.$breakpoint-xl: 16px,
+    ),
+    "b4": (
+        breakpoint.$breakpoint-sm: 13px,
+        breakpoint.$breakpoint-xl: 14px,
+    ),
+    "b5": (
+        breakpoint.$breakpoint-sm: 14px,
+        breakpoint.$breakpoint-xl: 14px,
+    ),
+    "b6": (
+        breakpoint.$breakpoint-sm: 12px,
+        breakpoint.$breakpoint-xl: 13px,
+    ),
+);
+
+@mixin a6 {
+    font-size: var(--a6);
+    font-family: $font-primary;
+    line-height: 100%;
+    letter-spacing: normal;
+}
+@mixin a5 {
+    font-size: var(--a5);
+    font-family: $font-primary;
+    line-height: 100%;
+    letter-spacing: normal;
+}
+
+@mixin a4 {
+    font-size: var(--a4);
+    font-family: $font-primary;
+    line-height: 110%;
+    letter-spacing: normal;
+}
+
+@mixin a3 {
+    font-size: var(--a3);
+    font-family: $font-primary;
+    line-height: 110%;
+    letter-spacing: normal;
+}
+
+@mixin a2 {
+    font-size: var(--a2);
+    font-family: $font-primary;
+    line-height: 120%;
+    letter-spacing: normal;
+}
+
+@mixin a1 {
+    font-size: var(--a1);
+    font-family: $font-primary;
+    line-height: 120%;
+    letter-spacing: normal;
+}
+
+@mixin b0 {
+    font-size: var(--b0);
+    font-family: $font-primary;
+    line-height: 140%;
+    letter-spacing: normal;
+}
+
+@mixin b1 {
+    font-size: var(--b1);
+    font-family: $font-primary;
+    line-height: 110%;
+    letter-spacing: normal;
+}
+
+@mixin b2 {
+    font-size: var(--b2);
+    font-family: $font-primary;
+    line-height: 140%;
+    letter-spacing: normal;
+}
+
+@mixin b3 {
+    font-size: var(--b3);
+    font-family: $font-primary;
+    line-height: 110%;
+    letter-spacing: normal;
+}
+
+@mixin b4 {
+    font-size: var(--b4);
+    font-family: $font-primary;
+    line-height: 120%;
+    letter-spacing: normal;
+}
+
+@mixin b5 {
+    font-size: var(--b4);
+    font-family: $font-primary;
+    line-height: 110%;
+    letter-spacing: normal;
+}
+
+@mixin b6 {
+    font-size: var(--b4);
+    font-family: $font-primary;
+    line-height: 120%;
+    letter-spacing: normal;
+}

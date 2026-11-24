@@ -1,0 +1,32 @@
+@use "../../tools/_tools.index" as tools;
+
+.c-theme-header-module {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "content image";
+    align-items: center;
+    padding-top: var(--s-40);
+    padding-bottom: var(--s-40);
+
+    @include tools.mq("md") {
+        grid-template-columns: 1fr;
+        grid-template-areas: "image" "content";
+        gap: var(--s-20);
+    }
+
+    &__content {
+        grid-area: content;
+        display: flex;
+        flex-direction: column;
+        gap: var(--s-20);
+        padding-right: tools.percentage(2, 12);
+
+        @include tools.mq("md") {
+            padding-right: 0;
+        }
+    }
+
+    &__image {
+        grid-area: image;
+    }
+}

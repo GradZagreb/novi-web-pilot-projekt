@@ -1,0 +1,49 @@
+@use "../../tools/tools.index" as tools;
+
+.c-office-header-module {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: var(--s-100);
+    padding-bottom: var(--s-100);
+
+    @include tools.mq("md") {
+        grid-template-columns: 1fr;
+        gap: var(--s-40);
+    }
+
+    &__header {
+        margin-right: tools.percentage(2, 11);
+
+        @include tools.mq("md") {
+            margin-right: 0;
+        }
+    }
+
+    &__content {
+        margin-right: tools.percentage(1, 11);
+        display: flex;
+        flex-direction: column;
+        gap: var(--s-30);
+
+        @include tools.mq("md") {
+            margin-right: 0;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: var(--s-15);
+
+        li {
+            display: flex;
+            gap: var(--s-10);
+            align-items: center;
+        }
+    }
+
+    &__info-icon {
+        width: var(--s-20);
+        height: auto;
+    }
+}

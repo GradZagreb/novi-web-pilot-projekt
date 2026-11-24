@@ -1,0 +1,17 @@
+@use "../../tools/tools.index" as tools;
+
+.c-search-results-header {
+    padding-top: var(--s-100);
+    padding-bottom: var(--s-60);
+    padding-left: tools.percentage(5, 22);
+    padding-right: tools.percentage(5, 22);
+
+    @include tools.mq(md) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &__heading {
+        margin-bottom: var(--s-20);
+    }
+}

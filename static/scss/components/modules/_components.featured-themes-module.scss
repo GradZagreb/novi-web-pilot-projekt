@@ -1,0 +1,10 @@
+.c-featured-themes-module {
+    padding-top: var(--s-80);
+    padding-bottom: var(--s-80);
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(var(--columns), 1fr);
+        gap: var(--s-30);
+    }
+}

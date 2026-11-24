@@ -1,0 +1,7 @@
+dist/
+node_modules/
+bower_components/
+static/scss/settings/**/*.scss
+static/scss/tools/**/*.scss
+static/scss/generics/_generics.b-reset.scss
+static/scss/vendors/_vendors.b-accordion.scss

@@ -1,0 +1,12 @@
+@use "../tools/tools.index" as tools;
+
+.c-capital-project-list {
+    padding-bottom: var(--s-100);
+
+    &__content {
+    }
+}
+
+#js-capital-projects-list-scroll-to {
+    scroll-margin-top: calc(var(--navigation-topbar-height) + var(--secondary-menu-height) + var(--s-20));
+}

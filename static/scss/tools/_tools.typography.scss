@@ -1,0 +1,19 @@
+@use "sass:math";
+
+@mixin font-face($font-name, $font-filename: $font-name, $version: 1, $font-weight: normal, $font-style: normal) {
+    @font-face {
+        font-family: "#{$font-name}";
+        src: url("../fonts/#{$font-filename}.woff2?#{$version}") format("woff2");
+        font-weight: $font-weight;
+        font-style: $font-style;
+        font-display: swap;
+    }
+}
+
+@function rem($size) {
+    @return math.div($size, 16px) * 1rem;
+}
+
+@function em($size, $font-size: 16px) {
+    @return math.div($size, $font-size) * 1em;
+}

@@ -1,0 +1,28 @@
+@use "../tools/_tools.index" as tools;
+@use "../settings/settings.color" as color;
+
+.c-notification {
+    display: flex;
+    gap: var(--s-30);
+    padding-top: var(--s-25);
+    padding-bottom: var(--s-25);
+    border-bottom: 1px solid rgba(color.$white, 0.2);
+
+    @include tools.mq("md") {
+        flex-direction: column;
+        gap: var(--s-10);
+    }
+
+    &:first-child {
+        border-top: 1px solid rgba(color.$white, 0.2);
+    }
+
+    a {
+        margin-left: auto;
+        text-decoration: underline;
+
+        @include tools.mq("md") {
+            margin-left: 0;
+        }
+    }
+}

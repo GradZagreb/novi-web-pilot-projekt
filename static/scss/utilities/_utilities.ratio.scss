@@ -1,0 +1,47 @@
+@use "sass:meta";
+@use "../tools/tools.index" as tools;
+@use "../settings/settings.index" as settings;
+
+.u-ratio {
+    position: relative;
+    display: block;
+    overflow: hidden;
+
+    &:before {
+        display: block;
+        padding-bottom: 100%;
+        width: 100%;
+        content: "";
+    }
+}
+
+.u-ratio__inner,
+.u-ratio > img,
+.u-ratio > video,
+.u-ratio > iframe,
+.u-ratio > embed,
+.u-ratio > object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@each $ratio in settings.$settings-ratio {
+    @each $antecedent, $consequent in $ratio {
+        @if (meta.type-of($antecedent) != number) {
+            @error "`#{$antecedent}` needs to be a number.";
+        }
+
+        @if (meta.type-of($consequent) != number) {
+            @error "`#{$consequent}` needs to be a number.";
+        }
+
+        .u-ratio--#{$antecedent}\-#{$consequent} {
+            &:before {
+                padding-bottom: tools.percentage($consequent, $antecedent);
+            }
+        }
+    }
+}

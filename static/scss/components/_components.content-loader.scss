@@ -1,0 +1,20 @@
+@use "../tools/tools.index" as tools;
+
+.c-content-loader {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-gray);
+    z-index: tools.get-z-index(default, 1);
+    justify-content: center;
+    align-items: center;
+    display: none;
+
+    &.is-loading {
+        display: flex;
+    }
+
+    .c-spinner {
+    }
+}

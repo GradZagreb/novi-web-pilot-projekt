@@ -1,0 +1,35 @@
+@use "../../tools/tools.index" as tools;
+
+.c-featured-services-catalog-module {
+    color: var(--white);
+    padding-top: var(--s-100);
+    padding-bottom: var(--s-100);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-100);
+
+    &__header {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--s-30);
+
+        @include tools.mq(md) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__title {
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: var(--s-30);
+    }
+
+    &__link {
+    }
+
+    &__list {
+    }
+}

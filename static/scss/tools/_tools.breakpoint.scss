@@ -1,0 +1,40 @@
+@use "sass:map";
+@use "../settings/settings.index" as settings;
+
+@function get-breakpoint($breakpointKey) {
+    @return map.get(settings.$settings-breakpoint, $breakpointKey);
+}
+
+@mixin mq($to: null, $from: null, $and: null) {
+    @if $from != null and $to != null {
+        @if $and != null {
+            @media (min-width: get-breakpoint($from)) and (max-width: get-breakpoint($to)) and ($and) {
+                @content;
+            }
+        } @else {
+            @media (min-width: get-breakpoint($from)) and (max-width: get-breakpoint($to)) {
+                @content;
+            }
+        }
+    } @else if $to != null {
+        @if $and != null {
+            @media (max-width: get-breakpoint($to)) and ($and) {
+                @content;
+            }
+        } @else {
+            @media (max-width: get-breakpoint($to)) {
+                @content;
+            }
+        }
+    } @else if $from != null {
+        @if $and != null {
+            @media (min-width: get-breakpoint($from)) and ($and) {
+                @content;
+            }
+        } @else {
+            @media (min-width: get-breakpoint($from)) {
+                @content;
+            }
+        }
+    }
+}

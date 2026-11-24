@@ -1,0 +1,20 @@
+.c-featured-link-primary-card {
+    padding: var(--s-20);
+    background-color: var(--white);
+    border-radius: 4px;
+    display: flex;
+    gap: var(--s-15);
+    align-items: center;
+
+    &__icon {
+        width: var(--s-50);
+    }
+
+    &__content {
+        display: flex;
+        gap: var(--s-15);
+        justify-content: space-between;
+        align-items: center;
+        flex: 1;
+    }
+}

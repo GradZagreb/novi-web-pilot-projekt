@@ -1,0 +1,23 @@
+@use "../../tools/tools.index" as tools;
+
+.c-footer-bottom-bar {
+    padding-top: var(--s-20);
+    padding-bottom: var(--s-20);
+    background-color: var(--light-gray);
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+
+        @include tools.mq("md") {
+            flex-direction: column;
+            gap: var(--s-20);
+        }
+    }
+
+    ul {
+        display: flex;
+        height: 1rem;
+        gap: var(--s-20);
+    }
+}

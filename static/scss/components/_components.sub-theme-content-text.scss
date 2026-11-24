@@ -1,0 +1,53 @@
+@use "../settings/_settings.index" as settings;
+
+.c-sub-theme-content-text {
+    p,
+    ul,
+    ol {
+        margin-bottom: var(--s-40);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    ul,
+    ol {
+        padding-left: 1.5rem;
+    }
+
+    ul {
+        list-style-type: disc;
+    }
+
+    ol {
+        list-style-type: decimal;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: var(--s-15);
+    }
+
+    h2 {
+        @include settings.a2;
+    }
+
+    h3 {
+        @include settings.a1;
+    }
+
+    h4,
+    h5,
+    h6 {
+        @include settings.a2;
+    }
+
+    a {
+        color: var(--blue);
+        text-decoration: underline;
+    }
+}

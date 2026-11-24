@@ -1,0 +1,23 @@
+@use "../tools/tools.index" as tools;
+
+.c-project-list {
+    padding-bottom: var(--s-100);
+    position: relative;
+
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        @include tools.mq("md-lg") {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .c-content-loader {
+        background-color: var(--white);
+    }
+}
+
+#js-projects-list-scroll-to {
+    scroll-margin-top: calc(var(--navigation-topbar-height) + var(--secondary-menu-height) + var(--s-20));
+}

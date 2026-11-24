@@ -1,0 +1,9 @@
+@use "../../tools/tools.index" as tools;
+
+.c-service-single-header {
+    padding-top: var(--s-100);
+    padding-bottom: var(--s-40);
+
+    &__heading {
+    }
+}

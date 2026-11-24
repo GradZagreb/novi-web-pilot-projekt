@@ -1,0 +1,91 @@
+@use "../../tools/tools.index" as tools;
+@use "../../settings/settings.transition" as transition;
+@use "../../settings/settings.color" as color;
+
+.c-capital-project-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--s-30);
+    position: relative;
+    padding-top: var(--s-40);
+    padding-bottom: var(--s-40);
+    border-bottom: 1px solid rgba(color.$blue, 0.2);
+
+    @include tools.mq("md") {
+        grid-template-columns: 1fr;
+    }
+
+    &:hover {
+        .c-circle {
+            &::before,
+            &::after {
+                animation: in var(--speed) transition.$ease-in-out-cubic both;
+            }
+        }
+    }
+
+    a {
+        @include tools.hover {
+            color: var(--blue);
+        }
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+    }
+
+    &__image {
+        flex: 0 0 tools.percentage(4, 11);
+
+        .c-responsive-media {
+            border-radius: 4px;
+        }
+    }
+
+    &__content {
+        padding-right: var(--s-30);
+        display: flex;
+        flex-direction: column;
+        gap: var(--s-10);
+    }
+
+    &__meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--s-10);
+
+        span::after {
+            content: " /";
+        }
+
+        span:last-child::after {
+            content: "";
+        }
+    }
+
+    .c-circle {
+        margin-top: auto;
+    }
+
+    @keyframes in {
+        from {
+            transform: rotate(-45deg);
+        }
+        to {
+            transform: rotate(135deg);
+        }
+    }
+
+    @keyframes out {
+        from {
+            transform: rotate(135deg);
+        }
+        to {
+            transform: rotate(-45deg);
+        }
+    }
+}

@@ -1,0 +1,46 @@
+@use "../tools/_tools.index.scss" as tools;
+
+.c-tag {
+    @include tools.button-reset;
+
+    height: var(--s-25);
+    padding: 0 var(--s-10);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    gap: var(--s-5);
+
+    @include tools.mq("md") {
+        height: var(--s-35);
+    }
+
+    span {
+        text-wrap: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &--dark-blue {
+        background-color: var(--dark-blue);
+        color: var(--white);
+        border: 1px solid var(--dark-blue);
+    }
+
+    &--light-gray {
+        background-color: var(--light-gray);
+        color: var(--black);
+        border: 1px solid var(--light-gray-blue);
+    }
+
+    &--light-gray-blue {
+        background-color: var(--light-gray-blue);
+        color: var(--dark-blue);
+        border: 1px solid var(--light-gray-blue);
+    }
+
+    .u-icon {
+        width: 0.6875rem;
+        height: 0.6875rem;
+    }
+}

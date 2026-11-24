@@ -1,0 +1,62 @@
+@use "../settings/settings.index" as settings;
+
+@mixin hover() {
+    @media (hover: hover) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+@mixin focus() {
+    &:active,
+    &:focus {
+        &:not(:disabled):focus-visible {
+            outline: 0;
+            box-shadow:
+                0 0 0 2px settings.$focus-indicator-divider-color,
+                0 0 0 4px settings.$focus-indicator-color;
+            @content;
+        }
+    }
+}
+
+@mixin button-reset() {
+    border: none;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    outline: 0;
+    border-radius: 0;
+    box-shadow: none;
+    text-decoration: none;
+    text-transform: none;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    vertical-align: top;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    width: auto;
+    height: auto;
+    background: transparent;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-tap-highlight-color: transparent;
+
+    &:hover,
+    &:focus,
+    &:active {
+        outline: none;
+    }
+}

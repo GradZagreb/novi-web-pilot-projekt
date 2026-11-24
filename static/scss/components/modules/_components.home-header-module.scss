@@ -1,0 +1,41 @@
+@use "../../tools/_tools.index.scss" as tools;
+
+.c-home-header-module {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "text image";
+    align-items: center;
+
+    @include tools.mq("md") {
+        grid-template-columns: 1fr;
+        grid-template-areas: "image" "text";
+    }
+
+    &__text {
+        grid-area: text;
+        display: flex;
+        flex-direction: column;
+        gap: var(--s-30);
+        padding-top: var(--s-150);
+        padding-bottom: var(--s-150);
+        padding-right: tools.percentage(2, 12);
+
+        @include tools.mq("md") {
+            padding-top: var(--s-60);
+            padding-bottom: var(--s-60);
+            padding-right: 0;
+        }
+    }
+
+    &__image {
+        grid-area: image;
+        position: relative;
+        height: 100%;
+        min-height: calc(4 * var(--s-150));
+        margin-right: tools.percentage(-1, 11);
+
+        @include tools.mq("md") {
+            margin-right: 0;
+        }
+    }
+}

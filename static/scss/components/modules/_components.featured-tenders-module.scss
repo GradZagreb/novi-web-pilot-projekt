@@ -1,0 +1,34 @@
+@use "../../tools/tools.index" as tools;
+
+.c-featured-tenders-module {
+    padding-top: var(--s-100);
+    padding-bottom: var(--s-100);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-40);
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+            color: var(--blue);
+            text-decoration: underline;
+
+            &[target="_blank"]::after {
+                content: " ↗";
+            }
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: var(--s-30);
+
+        @include tools.mq("lg") {
+            grid-template-columns: 1fr;
+        }
+    }
+}

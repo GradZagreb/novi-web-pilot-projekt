@@ -1,0 +1,18 @@
+@use "sass:math";
+
+$max-width: 1440;
+$max-height: 900;
+
+@function get-vw($size, $base-vw: $max-width) {
+    $vw-context: ($base-vw * 0.01) * 1px;
+    @return strip-units(math.div($size, $vw-context)) * 1vw;
+}
+
+@function get-vh($size) {
+    $vw-context: ($max-height * 0.01) * 1px;
+    @return math.div($size, $vw-context) * 1vh;
+}
+
+@function strip-units($number) {
+    @return math.div($number, ($number * 0 + 1));
+}

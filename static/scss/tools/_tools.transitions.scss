@@ -1,0 +1,44 @@
+@function getTransitionEasing($transitionEasing: "default") {
+    @if (map-has_key($settings-transitions-easing, $transitionEasing)) {
+        @return map-get($settings-transitions-easing, $transitionEasing);
+    } @else {
+        @return map-get($settings-transitions-easing, "default");
+    }
+}
+
+@function getTransition($transitionName: "default", $transitionEasing: getTransitionEasing()) {
+    @if (map-has_key($settings-transitions, $transitionName)) {
+        @return map-get($settings-transitions, $transitionName) getTransitionEasing($transitionEasing);
+    } @else {
+        @return map-get($settings-transitions, "default") getTransitionEasing($transitionEasing);
+    }
+}
+
+@function getCustomTransition($transitions...) {
+    $unfoldedTransitions: ();
+    @each $transition in $transitions {
+        $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
+    }
+    @return $unfoldedTransitions;
+}
+
+@function unfoldTransition($transition) {
+    $property: all;
+    $duration: 0.2s;
+    $easing: getTransitionEasing();
+    $delay: null;
+    $defaultProperties: ($property, $duration, $easing, $delay);
+
+    $unfoldedTransition: ();
+    @for $i from 1 through length($defaultProperties) {
+        $p: null;
+        @if $i <= length($transition) {
+            $p: nth($transition, $i);
+        } @else {
+            $p: nth($defaultProperties, $i);
+        }
+        $unfoldedTransition: append($unfoldedTransition, $p);
+    }
+
+    @return $unfoldedTransition;
+}

@@ -1,0 +1,29 @@
+@use "../../tools/tools.index" as tools;
+
+.c-employees-grid-module {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--s-30);
+    padding-top: var(--s-30);
+    padding-bottom: var(--s-30);
+    margin-top: var(--s-40);
+    margin-bottom: var(--s-40);
+    border-top: 1px solid var(--light-gray-blue);
+
+    @include tools.mq(lg) {
+        grid-template-columns: 1fr;
+    }
+
+    &__title {
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--s-30);
+
+        @include tools.mq(md) {
+            grid-template-columns: 1fr;
+        }
+    }
+}

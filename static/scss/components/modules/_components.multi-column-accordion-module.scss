@@ -1,0 +1,82 @@
+@use "../../tools/tools.index" as tools;
+@use "../../settings/settings.index" as settings;
+
+.c-multi-column-accordion-module {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding-top: var(--s-100);
+    padding-bottom: var(--s-100);
+    display: grid;
+    grid-template-columns: tools.percentage(7, 22) tools.percentage(15, 22);
+
+    @include tools.mq("lg") {
+        grid-template-columns: 1fr;
+        gap: var(--s-40);
+    }
+
+    &__title {
+    }
+
+    &__accordions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--s-30);
+
+        @include tools.mq("md") {
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        & :last-child {
+            @include tools.mq("md") {
+                border-top: none;
+            }
+        }
+    }
+
+    &__accordion {
+        border-top: 1px solid rgba(settings.$white, 0.2);
+    }
+
+    &__accordion-single {
+        padding-top: var(--s-20);
+        padding-bottom: var(--s-20);
+        border-bottom: 1px solid rgba(settings.$white, 0.2);
+    }
+
+    &__accordion-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--s-20);
+        cursor: pointer;
+
+        &.is-opened {
+            .u-icon {
+                transform: scaleY(-1);
+            }
+        }
+    }
+
+    &__accordion-panel {
+        ul {
+            padding-top: var(--s-30);
+            list-style: disc;
+            padding-left: 1em;
+            display: flex;
+            gap: var(--s-10);
+            flex-direction: column;
+
+            a {
+                @include tools.hover {
+                    opacity: 0.6;
+                }
+            }
+
+            .u-icon {
+                vertical-align: middle;
+                font-size: 0.825em;
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+@use "sass:map";
+@use "../settings/settings.index" as settings;
+
+@function get-z-index($z-index: default, $modifier: 0) {
+    @return map.get(settings.$settings-z-index, $z-index) + $modifier;
+}

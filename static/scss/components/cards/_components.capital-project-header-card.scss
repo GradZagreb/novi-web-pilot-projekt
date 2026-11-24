@@ -1,0 +1,41 @@
+@use "../../tools/tools.index" as tools;
+
+.c-capital-project-header-card {
+    position: relative;
+
+    &__image {
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    &__heading {
+        margin-top: var(--s-10);
+    }
+
+    &__content {
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 0;
+        padding: var(--s-30);
+        color: var(--white);
+    }
+
+    &__meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--s-10);
+        margin-bottom: var(--s-15);
+    }
+
+    a {
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+    }
+}

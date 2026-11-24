@@ -1,0 +1,436 @@
+@use "../tools/tools.index" as tools;
+@use "../settings/settings.index" as settings;
+
+.u-content-editor,
+.rte {
+    word-break: break-word;
+
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+        margin-bottom: var(--s-20);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        + h2,
+        + h3,
+        + h4,
+        + h5,
+        + h6 {
+            margin-top: var(--s-40);
+        }
+
+        > u {
+            text-decoration: underline;
+        }
+
+        > a {
+            text-decoration: underline;
+            transition: tools.get-transition(slide, ease-in-quad);
+
+            @include tools.hover {
+            }
+        }
+    }
+
+    > p,
+    > ul,
+    > ol {
+        margin-bottom: var(--s-20);
+
+        @include settings.b0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        + h2,
+        + h3,
+        + h4,
+        + h5,
+        + h6 {
+            margin-top: var(--s-30);
+        }
+
+        > u {
+            text-decoration: underline;
+        }
+
+        > a {
+            text-decoration: underline;
+            transition: tools.get-transition(slide, ease-in-quad);
+
+            @include tools.hover {
+            }
+        }
+    }
+
+    > h2 {
+        @include settings.a3;
+    }
+
+    > h3 {
+        @include settings.a2;
+    }
+
+    > h4 {
+        @include settings.a1;
+    }
+
+    > h5 {
+        @include settings.a1;
+    }
+
+    > h6 {
+        @include settings.a1;
+    }
+
+    > ul,
+    > ol {
+    }
+
+    li {
+        margin-bottom: var(--s-10);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    > ul {
+        list-style: disc;
+        margin-left: 1em;
+        padding-left: 1em;
+
+        li {
+            list-style-position: outside;
+
+            &::marker {
+            }
+        }
+    }
+
+    > ol {
+        list-style: decimal inside;
+        margin-left: 1em;
+        padding-left: 1em;
+
+        li {
+            list-style-position: outside;
+            padding-left: 0.5em;
+
+            &::marker {
+            }
+        }
+    }
+
+    > u {
+        text-decoration: underline;
+    }
+
+    > a {
+        text-decoration: underline;
+        transition: tools.get-transition(slide, ease-in-quad);
+
+        @include tools.hover {
+        }
+    }
+
+    b,
+    strong,
+    .wp-block-heading {
+        > u {
+            text-decoration: underline;
+        }
+
+        > a {
+            text-decoration: underline;
+            transition: tools.get-transition(slide, ease-in-quad);
+
+            @include tools.hover {
+            }
+        }
+    }
+
+    hr {
+        border-top: 1px solid var(--black);
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        padding: 0;
+        margin: var(--s-60) 0;
+        outline: none;
+        box-shadow: none;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .wp-block-table {
+        margin-top: var(--s-30);
+        margin-bottom: var(--s-30);
+        overflow-x: auto;
+        overflow-y: hidden;
+        background-color: var(--white);
+
+        @include tools.hide-scrollbar;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        table {
+            width: 100%;
+            table-layout: auto;
+            border-collapse: collapse;
+            font-weight: 400;
+
+            @include settings.b3;
+        }
+
+        thead,
+        tfoot {
+            margin: 0;
+            border: none;
+            text-align: left;
+            background-color: var(--light-gray);
+            color: var(--black);
+        }
+
+        thead {
+        }
+
+        tbody {
+            color: var(--black-60);
+        }
+
+        tfoot {
+            tr {
+                border-bottom: none;
+            }
+        }
+
+        tr {
+            border-bottom: 1px solid var(--light-gray-blue);
+            display: flex;
+            gap: var(--s-15);
+            padding: var(--s-10);
+        }
+
+        th,
+        td {
+            flex-grow: 1;
+            flex-basis: 0;
+            min-width: 0;
+            padding: 0;
+            border: none;
+            font-weight: 400;
+            word-break: break-word;
+
+            @include tools.mq(md) {
+                flex: none;
+                width: 180px;
+            }
+        }
+
+        th {
+        }
+
+        td {
+        }
+
+        u {
+            text-decoration: underline;
+        }
+
+        > a {
+        }
+
+        &.is-style-regular {
+        }
+
+        &.is-style-stripes {
+            tbody tr:nth-child(even) {
+                background-color: var(--light-gray);
+            }
+        }
+    }
+
+    .wp-block-quote {
+        margin-top: var(--s-60);
+        margin-bottom: var(--s-60);
+        padding-left: var(--s-15);
+        border-left: 3px solid var(--black);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        p {
+            @include settings.a2;
+        }
+
+        cite {
+            margin-top: var(--s-15);
+            display: block;
+
+            @include settings.b1;
+
+            > u {
+                text-decoration: underline;
+            }
+
+            > a {
+                text-decoration: underline;
+                transition: tools.get-transition(slide, ease-in-quad);
+
+                @include tools.hover {
+                }
+            }
+        }
+
+        &.is-style-large {
+        }
+    }
+
+    .wp-block-embed {
+        margin-top: var(--s-60);
+        margin-bottom: var(--s-60);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &.is-type-video {
+            .wp-block-embed__wrapper {
+                position: relative;
+                padding-bottom: 56.25%;
+                height: 0;
+                overflow: hidden;
+                max-width: 100%;
+
+                iframe,
+                object,
+                embed {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .wp-block-image {
+        margin-top: var(--s-40);
+        margin-bottom: var(--s-40);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &.size-full {
+        }
+
+        &.size-large {
+        }
+
+        &.size-medium {
+            img {
+                width: auto;
+            }
+        }
+
+        &.size-thumbnail {
+            img {
+                width: auto;
+            }
+        }
+
+        figcaption {
+            margin-top: var(--s-15);
+
+            @include settings.b3;
+
+            > u {
+                text-decoration: underline;
+            }
+
+            > a {
+                text-decoration: underline;
+                transition: tools.get-transition(slide, ease-in-quad);
+
+                @include tools.hover {
+                }
+            }
+        }
+
+        img {
+            border-radius: 4px;
+        }
+    }
+
+    .wp-block-code,
+    pre {
+        margin-top: var(--s-60);
+        margin-bottom: var(--s-60);
+        padding: var(--s-30);
+        background-color: var(--white);
+        color: var(--black);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        code {
+            font-size: 0.75em;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+    }
+
+    .c-gutenberg-block {
+        margin-top: var(--s-60);
+        margin-bottom: var(--s-60);
+        position: relative;
+        z-index: tools.get-z-index(default);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

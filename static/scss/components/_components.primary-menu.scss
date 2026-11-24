@@ -1,0 +1,117 @@
+@use "../tools/_tools.index" as tools;
+
+.c-primary-menu {
+    $this: &;
+    pointer-events: none;
+    visibility: hidden;
+    height: 0px;
+    overflow-y: auto;
+    max-width: 1920px;
+    margin: 0 auto;
+
+    &.is-open {
+        pointer-events: all;
+    }
+
+    &__list {
+        padding: var(--s-40) var(--s-30);
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        column-gap: var(--s-20);
+        row-gap: var(--s-50);
+
+        @include tools.mq("lg") {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include tools.mq("md") {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include tools.mq("sm") {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        &--columns-2 {
+            grid-column: span 2;
+
+            @include tools.mq("sm") {
+                grid-column: span 1;
+            }
+
+            #{$this}__sublist {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                column-gap: var(--s-50);
+
+                @include tools.mq("sm") {
+                    grid-template-columns: 1fr;
+                }
+            }
+        }
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        gap: var(--s-10);
+        border-bottom: 1px solid var(--light-gray-blue);
+        padding-bottom: var(--s-5);
+        margin-bottom: var(--s-10);
+    }
+
+    &__icon-image {
+        width: var(--s-20);
+        height: auto;
+    }
+
+    &__label {
+        min-height: var(--s-20);
+    }
+
+    &__sublist {
+        display: flex;
+        flex-direction: column;
+        gap: var(--s-15);
+        padding-left: var(--s-30);
+    }
+
+    &__subitem {
+    }
+
+    &__sublink {
+        display: block;
+
+        @include tools.hover {
+            opacity: 0.5;
+        }
+    }
+
+    &__button-group {
+        display: flex;
+        flex-direction: column;
+        gap: var(--s-10);
+        justify-content: flex-end;
+    }
+
+    &__mobile-actions {
+        display: none;
+
+        @include tools.mq("lg") {
+            padding-left: var(--s-30);
+            padding-right: var(--s-30);
+            padding-top: var(--s-20);
+            padding-bottom: var(--s-20);
+            border-bottom: 1px solid var(--light-gray-blue);
+            display: flex;
+            gap: var(--s-10);
+            align-items: center;
+        }
+
+        & :nth-child(2) {
+            margin-left: auto;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+<fieldset class="c-form__fieldset">
+    <label class="c-form__label" for="name">Ime</label>
+    [text* name id:name class:c-form__input placeholder "Unesite ime"]
+</fieldset>
+
+<fieldset class="c-form__fieldset">
+    <label class="c-form__label" for="email">Email</label>
+    [email* email id:email class:c-form__input placeholder "Unesite email"]
+</fieldset>
+
+<fieldset class="c-form__fieldset">
+    <label class="c-form__label" for="theme">Tema</label>
+    [select select-taxonomy slug:theme-taxonomy class:js-select-input id:theme]
+</fieldset>
+
+<fieldset class="c-form__fieldset">
+    <label class="c-form__label" for="message">Poruka</label>
+    [textarea* message id:message class:c-form__input class:c-form__input--textarea placeholder "Unesite svoju poruku"]
+</fieldset>
+
+<fieldset class="c-form__fieldset">
+    <div class="c-form__checkbox-wrapper">
+        <input class="c-form__checkbox js-acceptance-input" type="checkbox" id="acceptance"/>
+        <label class="c-form__checkbox-label" for="acceptance">
+            Prihvaćam <a href="#">Uvjete i odredbe</a>
+        </label>
+     </div>
+</fieldset>
+
+<fieldset class="c-form__fieldset">
+    [submit class:c-button class:c-button--primary class:c-button--full "Pošaljite poruku"]
+</fieldset>
+
+<div class="c-form__success">
+    <h3 class="c-form__success-title">Hvala na vašoj poruci!</h3>
+    <p class="c-form__success-message">Vaša poruka je uspješno poslana. Odgovorit ćemo vam u najkraćem mogućem roku!</p>
+</div>
+
+<div class="c-form__fail">
+    <h3 class="c-form__fail-title">Došlo je do greške!</h3>
+    <p class="c-form__fail-message">Vaša poruka nije poslana zbog tehničke greške. Molimo pokušajte ponovo ili nas kontaktirajte direktno putem e-maila ili telefona. Hvala na razumijevanju!</p>
+</div>
+
+<div class="c-form__sending">
+    <span class="c-spinner js-spinner">
+        <span class="c-spinner__inner "></span>
+    </span>
+</div>

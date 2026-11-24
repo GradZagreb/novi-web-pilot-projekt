@@ -1,0 +1,74 @@
+@use "../tools/tools.index" as tools;
+@use "../settings/settings.transition" as transition;
+
+.c-pagination {
+    padding-top: var(--s-60);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--s-10);
+
+    &__item {
+        a {
+            width: var(--s-40);
+            height: var(--s-40);
+            border-radius: 50%;
+            border: 1px solid var(--light-gray-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.2s ease-in-out;
+
+            &.is-active {
+                background-color: var(--white);
+                border: 1px solid var(--white);
+            }
+
+            @include tools.hover {
+                border-color: var(--blue);
+            }
+        }
+
+        @include tools.hover {
+            .c-circle {
+                &::before,
+                &::after {
+                    animation: in var(--speed) transition.$ease-in-out-cubic both;
+                }
+            }
+        }
+
+        &:first-child,
+        &:last-child {
+            a {
+                border: none;
+            }
+        }
+
+        &:first-child {
+            margin-right: auto;
+        }
+
+        &:last-child {
+            margin-left: auto;
+        }
+    }
+
+    @keyframes in {
+        from {
+            transform: rotate(-45deg);
+        }
+        to {
+            transform: rotate(135deg);
+        }
+    }
+
+    @keyframes out {
+        from {
+            transform: rotate(135deg);
+        }
+        to {
+            transform: rotate(-45deg);
+        }
+    }
+}

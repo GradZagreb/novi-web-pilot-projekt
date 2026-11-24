@@ -1,0 +1,22 @@
+.c-employee-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-15);
+
+    &__image {
+        border-radius: 4px;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: var(--s-5);
+    }
+
+    &__name {
+    }
+
+    &__function {
+        color: var(--blue);
+    }
+}

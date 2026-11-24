@@ -1,0 +1,14 @@
+.c-sub-theme-content-cta {
+    padding-top: var(--s-40);
+    padding-bottom: var(--s-40);
+    border-top: 1px solid var(--light-gray-blue);
+    border-bottom: 1px solid var(--light-gray-blue);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-15);
+
+    a {
+        color: var(--blue);
+        text-decoration: underline;
+    }
+}

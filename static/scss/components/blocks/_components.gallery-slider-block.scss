@@ -1,0 +1,30 @@
+@use "../../settings/settings.index" as settings;
+
+.c-gallery-slider-block {
+    margin-top: var(--s-40);
+    margin-bottom: var(--s-40);
+
+    &__slide {
+        img {
+            border-radius: 4px;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        gap: var(--s-20);
+        justify-content: space-between;
+        align-items: center;
+        padding-top: var(--s-20);
+    }
+
+    &__navigation {
+        display: flex;
+        gap: var(--s-10);
+        align-items: center;
+    }
+
+    &__pagination {
+        @include settings.b3;
+    }
+}

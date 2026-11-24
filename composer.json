@@ -1,0 +1,35 @@
+{
+	"license": "GPL-2.0-or-later",
+	"require": {},
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org"
+		}
+	],
+	"extra": {
+		"wordpress-install-dir": "../../../",
+		"installer-paths": {
+			"../../plugins/{$name}/": [
+				"type:wordpress-plugin"
+			],
+			"../../themes/{$name}/": [
+				"type:wordpress-theme"
+			]
+		},
+		"dotenv": {
+			"path": ".",
+			"file": "env"
+		}
+	},
+	"autoload": {
+		"files": [],
+		"classmap": [],
+		"psr-4": {
+			"gradZagrebWeb2024\\": "app"
+		}
+	},
+	"require-dev": {
+		"symfony/var-dumper": "^7.2"
+	}
+}

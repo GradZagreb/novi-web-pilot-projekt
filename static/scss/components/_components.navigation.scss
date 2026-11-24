@@ -1,0 +1,68 @@
+@use "../tools/tools.index" as tools;
+
+.c-navigation {
+    &__topbar {
+        width: 100%;
+        padding: var(--s-15) var(--s-20);
+        border-bottom: 1px solid var(--light-gray-blue);
+        height: var(--navigation-topbar-height);
+    }
+
+    &__topbar-inner {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        max-width: 1920px;
+        margin: 0 auto;
+        gap: var(--s-20);
+        align-items: start;
+
+        @include tools.mq(md) {
+            align-items: center;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__topbar-left {
+        display: flex;
+        align-items: center;
+        gap: var(--s-15);
+        margin-right: auto;
+    }
+
+    &__topbar-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--s-10);
+
+        @include tools.mq(md) {
+            justify-content: flex-end;
+        }
+
+        a {
+            display: block;
+        }
+    }
+
+    &__topbar-right {
+        display: flex;
+        align-items: center;
+        gap: var(--s-20);
+        margin-left: auto;
+
+        @include tools.mq(md) {
+            display: none;
+        }
+    }
+
+    &__logo-link {
+        img {
+            width: auto;
+            height: var(--logo-height);
+        }
+    }
+
+    &__actions {
+    }
+}
